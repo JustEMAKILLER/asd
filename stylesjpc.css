@@ -17,6 +17,9 @@
 	#botonarriba {
 		height: 30px;
 		width: 30px;}}
+		@media (max-width: 768px) {
+			#buscar{
+				margin-right: 100px;}}
 /* Palabras reservadas */
 	body {
 	background: linear-gradient(
@@ -369,9 +372,9 @@
 	#buscar{
 		color: whitesmoke;
 		position: sticky;
-		top:1%;
-		margin-top:-65px;
-		margin-right: 20px;
+		top: 1%;
+		margin-top: -65px;
+		margin-right: -20px;
 		left: 100%;
 		width: 25%;
 		height: 50px;
