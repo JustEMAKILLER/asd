@@ -35,21 +35,21 @@ svg {
   max-width: 50px;
   min-width: 50px;}
 
-nav {
+	nav {
     display: flex;
     justify-content:right;
-    height: 70px;
+    position: sticky;
+    top: 1%;
+    height: 65px;
+    min-width: fit-content;
+    max-width: fit-content;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 10px;
     scale: 0.9;
     border: 1px solid var(--Bl-border-nav);
     border-radius: 20px;
     background-color: var(--Bl-background-nav);
     box-shadow: 0 0 10px var(--Bl-shadow-nav);
-    position: sticky;
-    min-width: fit-content;
-    max-width: fit-content;
-    top: 1%;
     z-index: 2;}
 
 nav a{

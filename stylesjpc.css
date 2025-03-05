@@ -55,22 +55,22 @@
 		color:lightblue;
 		text-decoration:none;
 		transform:scale(1.15);}
-	nav {
-        display: flex;
-        justify-content:right;
-        height: 70px;
-        margin-top: 20px;
-        margin-left: 20px;
-        scale: 0.9;
-        border: 1px solid var(--Bl-border-nav);
-        border-radius: 20px;
-        background-color: var(--Bl-background-nav);
-        box-shadow: 0 0 10px var(--Bl-shadow-nav);
-        position: sticky;
-        min-width: fit-content;
-        max-width: fit-content;
-        top: 1%;
-        z-index: 2;}
+		nav {
+			display: flex;
+			justify-content:right;
+			position: sticky;
+			top: 1%;
+			height: 65px;
+			min-width: fit-content;
+			max-width: fit-content;
+			margin-top: 20px;
+			margin-left: 10px;
+			scale: 0.9;
+			border: 1px solid var(--Bl-border-nav);
+			border-radius: 20px;
+			background-color: var(--Bl-background-nav);
+			box-shadow: 0 0 10px var(--Bl-shadow-nav);
+			z-index: 2;}
     nav a{
         border-radius: 30px;
         transition: transform 1s;}
@@ -158,7 +158,6 @@
 	.botonesbusqueda{
 		display: none;}
 	.botonesbusqueda:hover{
-		color:black;
 		cursor: pointer;}
 	.botonelementos{
 		position: relative;
@@ -412,37 +411,38 @@
 		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
 		font-size: 20px;
 		color: var(--Bl-color-title);}
-    #menuDesplegable {
-        cursor: pointer;
-        position:fixed;
-        bottom: 8px;
-        left: 10px;
-        display: flex;
-        height: 80px;
-        margin-top: 20px;
-        margin-left: 20px;
-        border: 1px solid var(--Bl-border-nav);
-        border-radius: 50px;
-        background-color: var(--Bl-background-nav);
-        scale: 0.9;
-		user-select: none;
-        z-index: 2;}
-    #menuDesplegable a{
-        border-radius: 30px;
-        transition: transform 1s;}
-    #menuDesplegable a:hover{
-        transform: scale(1.1);
-        z-index: 2;}
-    #menuDesplegado{
-        display: none;
-        overflow-y: auto;
-        overflow-x: auto;
-        justify-content:left;
-        flex-flow: row wrap;
-        border: 1px solid var(--Bl-border-nav);
-        background-color: var(--Bl-background-nav);
-        box-shadow: 0 0 10px var(--Bl-shadow-nav);
-        width: 420px;}
+		#menuDesplegable {
+			cursor: pointer;
+			position:fixed;
+			bottom: 8px;
+			left: 5px;
+			display: flex;
+			height: 80px;
+			width: auto;
+			margin-top: 20px;
+			margin-left: 20px;
+			border: 1px solid var(--Bl-border-nav);
+			border-radius: 50px;
+			background-color: var(--Bl-background-nav);
+			scale: 0.9;
+			user-select: none;
+			z-index: 2;}
+		#menuDesplegable a{
+			border-radius: 30px;
+			transition: transform 1s;}
+		#menuDesplegable a:hover{
+			transform: scale(1.1);
+			z-index: 2;}
+		#menuDesplegado{
+			display: none;
+			overflow-y: auto;
+			overflow-x: hidden;
+			justify-content:left;
+			flex-flow: row wrap;
+			border: 1px solid var(--Bl-border-nav);
+			background-color: var(--Bl-background-nav);
+			box-shadow: 0 0 10px var(--Bl-shadow-nav);
+			width:auto;}
     #menuDesplegado img {
         margin-left: 5px;
         border-radius: 30px;
