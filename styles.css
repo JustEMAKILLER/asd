@@ -1,0 +1,345 @@
+/* Variables raíz */
+:root {
+  --Bl-svg: white;
+  --Bl-background-nav: rgba(0, 0, 0, 0.863);
+  --Bl-border-nav: rgb(119, 119, 119);
+  --Bl-shadow-nav: rgb(59, 2, 42);
+  --Bl-background-title: rgba(0, 0, 0, 0.473);
+  --Bl-border-title: rgb(83, 4, 50);
+  --Bl-shadow-title: rgb(2, 0, 0);
+  --Bl-color-title: rgb(255, 255, 255);}
+/* Palabras reservadas */
+body {
+  background: linear-gradient(
+      to bottom,
+      rgba(252, 0, 0, 0) 8vw,
+      rgba(0, 0, 0, 0.999)35vw
+    ),
+    url(photo_2024-12-18_11-58-57.jpg) ;
+  color: var(--Bl-svg);
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+  background-size: 100%;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+h1,h2,h3,h4,h5,h6{
+  user-select: none;}
+svg {
+  position: relative;
+  width: 200%;
+  top: 40%;
+  left: 30%;
+  fill: white;
+  max-width: 50px;
+  min-width: 50px;}
+
+nav {
+    display: flex;
+    justify-content:right;
+    height: 70px;
+    margin-top: 20px;
+    margin-left: 20px;
+    scale: 0.9;
+    border: 1px solid var(--Bl-border-nav);
+    border-radius: 20px;
+    background-color: var(--Bl-background-nav);
+    box-shadow: 0 0 10px var(--Bl-shadow-nav);
+    position: sticky;
+    min-width: fit-content;
+    max-width: fit-content;
+    top: 1%;
+    z-index: 2;}
+
+nav a{
+  border-radius: 30px;
+  transition: transform 1s;}
+
+  nav a:hover{
+    transform: scale(1.2);
+    background-color: rgb(166, 11, 180);
+    z-index: 2;
+  }
+  
+
+/* Clases */
+.cajasjuegos:hover{
+  z-index: 2;
+  animation:cambiobordecajas 1s linear;
+  transform: scale(1.1);
+  box-shadow: 2px 2px 6px blue;
+}
+
+.cajasjuegos:hover .frente{
+  display: inline;
+}
+
+.boxcat {
+  margin: 0 auto;
+  width: fit-content;
+  height: fit-content;
+  padding-right: 50px;
+  margin-top: -50px;
+  scale: 0.8;
+  border: 1px solid var(--Bl-border-title);
+  border-radius: 20px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(66, 1, 58, 0.295) 90%
+  );
+  box-shadow: inset 0 0 30px var(--Bl-shadow-title);
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
+  font-size: 20px;
+  color: var(--Bl-color-title);
+  text-shadow: 0 0 10px black;
+}
+
+.box{
+margin-top: -20px;
+padding-right: 20px;
+text-align: center;
+border: 1px solid var(--Bl-border-title);
+border-radius: 20px;
+background: linear-gradient(
+  to top,
+  rgba(0, 0, 0, 0) 10%,
+  rgba(54, 2, 38, 0.295) 90%
+);
+box-shadow: inset 0 0 30px var(--Bl-shadow-title);
+}
+
+.boxcat2{
+position: relative;
+width: 100%;
+height: 200px;
+margin-top: 30px;
+scale: 0.8;
+border: 1px solid var(--Bl-border-title);
+border-radius: 20px;
+background: linear-gradient(
+  to top,
+  rgba(0, 0, 0, 0) 10%,
+  rgba(54, 2, 38, 0.295) 90%
+);
+box-shadow: inset 0 0 30px var(--Bl-shadow-title);
+text-align: center;
+font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
+font-size: 20px;
+color: var(--Bl-color-title);
+text-shadow: 0 0 10px black;}
+
+.contactos {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  font-weight: bold;
+}
+
+.contactos a {
+  width: 200px;
+  color: aliceblue;
+  text-decoration-line: none;
+}
+
+.TextS {
+  flex-basis: 10px;
+}
+
+.frente{
+  display: none;
+  position: relative;
+  top: -50%;
+  left: -40%;
+ height: 120px;
+ width: 100px;
+ transition-property: opacity,height ;
+}
+
+.kjasjuegos {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.kjasjuegos a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: left;
+  font-size: 250%;
+  text-shadow: 10px 10px 10px black;
+}
+
+
+.kjasjuegos p {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cajasjuegos {
+  height: 250px;
+  border: solid 2px black;
+  box-shadow: 2px 2px 6px purple;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: 50px;
+  margin-bottom: 30px;
+  scale: 1;
+  transition: transform 1s;
+  z-index: 1;
+}
+
+.cajasjuegos p{
+  user-select: none;
+  position: relative;
+  top: 30px;
+  width: 100%;
+  height: 100%;
+}
+
+.cajasjuegos a{
+  width: 100%;
+  height: 100%;
+}
+
+
+.Download{
+  position: relative;
+  left: 50px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.Download svg {
+  position: relative;
+  top: 57px;
+  left: -55%;
+}
+
+.Download a {
+  text-decoration: none;
+  color: aliceblue;
+}
+/* ID's */
+#Titulo {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin-top: 30%;
+  padding-top: 10px;
+  scale: 0.8;
+  border: 1px solid var(--Bl-border-title);
+  border-radius: 20px;
+  background-color: var(--Bl-background-title);
+  box-shadow: inset 0 0 30px var(--Bl-shadow-title);
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
+  font-size: 20px;
+  color: var(--Bl-color-title);
+  text-shadow: 0 0 10px black;
+}
+
+#Tituloh{
+  position: relative;
+  bottom: 25px;
+}
+
+#c1 {
+  width: 300px;
+  background-image: url(5098471620732889477_120.jpg);
+}
+#c2 {
+  background-image: url(alowallapope.jpg);
+}
+#c3 {
+  width: 500px;
+  background-image: url(Imagen-1-3-768x384.jpg);
+}
+
+#payday{
+  top:-48%;
+}
+
+#sora{
+  width: 100px;
+  top:-45%;
+}
+
+#reglas{
+  text-align: justify;}
+
+#hinfo {
+  text-align:center;
+}
+
+#info a {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+#Facebook {
+  scale: 0.8;
+  top: 0%;
+  left: 0%;
+}
+
+#Whatsapp {
+  scale: 2.7;
+  top: 40%;
+  left: 0%;
+}
+
+#casa{
+  left: 3px;
+  width: 30px;
+  min-width: 30px;
+  max-width: 30px;}
+
+#Livello_1 {
+  scale: 0.3;
+  top: 7%;
+  left: 0%;}
+
+#Layer_1 {
+  scale: 0.5;
+  top: 20%;
+  left: 0%;}
+
+#Capa_1 {
+  scale: 0.5;
+  top: 3%;
+  left: 0%;}
+
+#Capa_2 {
+    scale: 0.5;
+    top: 20%;
+    left: 0%;}
+
+  #live{
+    animation:cambiocolorlive 3.5s linear infinite;
+    font-weight:900;
+    text-align: center;
+    color: blueviolet;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;}
+
+/* Animaciones */
+@keyframes cambiocolorlive{
+  0% {color:red}
+  33% {color:rgb(26, 102, 123)}
+  86% {color:#FAAD00}
+  100% {color:red}}
+@keyframes cambiobordecajas{
+  from {box-shadow: 2px 2px 6px purple;}
+  to {box-shadow: 2px 2px 6px blue;}}
