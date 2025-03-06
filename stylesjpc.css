@@ -17,9 +17,13 @@
 	#botonarriba {
 		height: 30px;
 		width: 30px;}}
-		@media (max-width: 768px) {
-			#buscar{
-				margin-right: 100px;}}
+@media (max-width: 768px) {
+	nav {
+		height: 65px;}
+	#buscar{
+		margin-right: 5%;
+	}
+		}
 /* Palabras reservadas */
 	body {
 	background: linear-gradient(
@@ -58,22 +62,22 @@
 		color:lightblue;
 		text-decoration:none;
 		transform:scale(1.15);}
-		nav {
-			display: flex;
-			justify-content:right;
-			position: sticky;
-			top: 1%;
-			height: 65px;
-			min-width: fit-content;
-			max-width: fit-content;
-			margin-top: 20px;
-			margin-left: 10px;
-			scale: 0.9;
-			border: 1px solid var(--Bl-border-nav);
-			border-radius: 20px;
-			background-color: var(--Bl-background-nav);
-			box-shadow: 0 0 10px var(--Bl-shadow-nav);
-			z-index: 2;}
+	nav {
+        display: flex;
+        justify-content:right;
+        position: sticky;
+        top: 1%;
+        height: 70px;
+        min-width: fit-content;
+        max-width: fit-content;
+        margin-top: 20px;
+        margin-left: 10px;
+        scale: 0.9;
+        border: 1px solid var(--Bl-border-nav);
+        border-radius: 20px;
+        background-color: var(--Bl-background-nav);
+        box-shadow: 0 0 10px var(--Bl-shadow-nav);
+        z-index: 2;}
     nav a{
         border-radius: 30px;
         transition: transform 1s;}
@@ -145,8 +149,7 @@
 		width: 35px;
 		height: 35px;
 		border-radius: 30px;
-		box-shadow: outset 0 0 10px black;
-		transition: transform 0.3s ease;}
+		box-shadow: outset 0 0 10px black;}
 	.add-button:hover{
 		animation:cambiocoloraddbutton 0.3s ease;
 		box-shadow: 2px 2px 10px blue;}
@@ -253,6 +256,19 @@
 		transition: transform 1s;}
 	.titulostjuegos:hover{
 		transform: scale(1.10);}
+		/* Estilos para la vista tradicional */
+	.vista-tradicional li {
+    	width: auto !important;
+    	height: auto !important;
+    	background: none !important;
+    	border: none !important;
+    	border-radius: 0 !important;
+    	box-shadow: none !important;
+    	transition: none !important;
+    	display: list-item !important;
+    	padding: 5px !important;}
+	.vista-tradicional ul{
+		display: block !important;}
 /* ID's */
 	/* SVGs */
 	#casa{
@@ -282,7 +298,6 @@
 	#botonJNA, #botonMostrar{
 		margin: 0 auto;
 		cursor: pointer;
-		transition: transform 0.3s ease;
 		color: white;
 		border:2px outset purple;
 		border-radius: 0px;
@@ -292,6 +307,16 @@
 		animation:cambiocolorbusqueda 0.3s linear;
 		box-shadow: 2px 2px 10px purple;
 		transform: scale(1.1);}
+	#botonCambiarVista{
+		display:flex; 
+		margin: 0 auto;
+	    cursor:pointer;
+		border-color:purple;
+	}
+	#botonCambiarVista:hover{
+		animation:cambiocolorbusqueda 0.3s ease;
+		box-shadow: 2px 2px 10px purple;
+	}
 	#botonarriba{
 		height: 50px;
 		width: 50px;
@@ -316,8 +341,6 @@
 	#botonarriba:hover{
 		border-color: purple;
 		transform:scale(1.15);}
-	#botoneliminatodo, #botonagregatodo{	
-		transition: color, transform 0.3s ease;}
 	#botoneliminatodo:hover{
 		color:red;}
 	#botonagregatodo:hover{
@@ -331,8 +354,7 @@
 			border-radius: 0px;
 			box-shadow: 2px 2px 10px black;
 			background-color: var(--Bl-background-nav);
-			cursor: pointer;
-			transition: color, transform 0.3s ease;}
+			cursor: pointer;}
 	#botonEnviarWhatsapp:hover{
 			color:rgb(49, 238, 2);
 			transform:scale(1.05);
@@ -374,7 +396,7 @@
 		position: sticky;
 		top: 1%;
 		margin-top: -65px;
-		margin-right: -20px;
+		margin-right: -5%;
 		left: 100%;
 		width: 25%;
 		height: 50px;
@@ -416,38 +438,38 @@
 		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
 		font-size: 20px;
 		color: var(--Bl-color-title);}
-		#menuDesplegable {
-			cursor: pointer;
-			position:fixed;
-			bottom: 8px;
-			left: 5px;
-			display: flex;
-			height: 80px;
-			width: auto;
-			margin-top: 20px;
-			margin-left: 20px;
-			border: 1px solid var(--Bl-border-nav);
-			border-radius: 50px;
-			background-color: var(--Bl-background-nav);
-			scale: 0.9;
-			user-select: none;
-			z-index: 2;}
-		#menuDesplegable a{
-			border-radius: 30px;
-			transition: transform 1s;}
-		#menuDesplegable a:hover{
-			transform: scale(1.1);
-			z-index: 2;}
-		#menuDesplegado{
-			display: none;
-			overflow-y: auto;
-			overflow-x: hidden;
-			justify-content:left;
-			flex-flow: row wrap;
-			border: 1px solid var(--Bl-border-nav);
-			background-color: var(--Bl-background-nav);
-			box-shadow: 0 0 10px var(--Bl-shadow-nav);
-			width:auto;}
+    #menuDesplegable {
+        cursor: pointer;
+        position:fixed;
+        bottom: 8px;
+        left: 5px;
+        display: flex;
+        height: 80px;
+		width: auto;
+        margin-top: 20px;
+        margin-left: 20px;
+        border: 1px solid var(--Bl-border-nav);
+        border-radius: 50px;
+        background-color: var(--Bl-background-nav);
+        scale: 0.9;
+		user-select: none;
+        z-index: 2;}
+    #menuDesplegable a{
+        border-radius: 30px;
+        transition: transform 1s;}
+    #menuDesplegable a:hover{
+        transform: scale(1.1);
+        z-index: 2;}
+    #menuDesplegado{
+        display: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+        justify-content:left;
+        flex-flow: row wrap;
+        border: 1px solid var(--Bl-border-nav);
+        background-color: var(--Bl-background-nav);
+        box-shadow: 0 0 10px var(--Bl-shadow-nav);
+		width:auto;}
     #menuDesplegado img {
         margin-left: 5px;
         border-radius: 30px;
