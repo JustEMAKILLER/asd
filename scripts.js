@@ -24,7 +24,6 @@ function crearBotonesAdicion() {
     const productos = document.querySelectorAll('.listajuegos li');
 
     productos.forEach((producto) => {
-        producto.style.position = "relative";
         if (!producto.querySelector('.add-button')) {
             const addButton = crearBoton("+", "add-button", "blue", function () {
                 moverProducto(producto);
@@ -184,7 +183,12 @@ function busqueda() {
         let mostrarGrupo = false;
 
         productos.forEach((producto) => {
-            const productName = producto.querySelector('img')?.getAttribute("title").toLowerCase() || producto.textContent.toLowerCase();
+            // Verificar si hay una imagen con el atributo title o solo un enlace
+            const productNameFromImg = producto.querySelector('img')?.getAttribute("title");
+            const productNameFromLink = producto.querySelector('a')?.textContent.trim();
+
+            // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
+            const productName = productNameFromImg ? productNameFromImg.split(" -")[0].toLowerCase() : (productNameFromLink ? productNameFromLink.toLowerCase() : "");
             const productPrice = parseFloat(producto.getAttribute("data-price"));
             let mostrarProducto = true;
 
@@ -222,7 +226,6 @@ function busqueda() {
         calculoprecio.style.display = "block";
     }
 }
-
     // Función para borrar el campo de búsqueda
     function borrarBusqueda() {
     const buscarnombreInput = document.getElementById('buscarnombre');
@@ -331,3 +334,66 @@ function enviarListado(){
     let mensajeURL = encodeURIComponent(mensaje);
     let URL = `https://wa.me/+5363975093?text=${mensajeURL}`;
     window.open(URL, "_blank");}
+
+//Función para cambiar la vista de imágenes a texto
+function cambiarVista() {
+    const body = document.body;
+    body.classList.toggle("vista-tradicional"); // Activa o desactiva la clase en el body
+
+    const uls = document.querySelectorAll("ul");
+    const lis = document.querySelectorAll("li");
+
+    if (body.classList.contains("vista-tradicional")) {
+        // Modo lista tradicional activado
+        uls.forEach(ul => {
+            ul.style.display = "block"; // Cambia a lista vertical
+        });
+
+        lis.forEach(li => {
+            const enlace = li.querySelector("a");
+            const img = li.querySelector("img");
+
+            if (img) {
+                const nombreJuego = document.createTextNode(img.title);
+                li.setAttribute('data-imgSrc', img.src); // Guarda la imagen antes de eliminarla
+                img.remove(); // Elimina la imagen
+
+                if (enlace) {
+                    enlace.innerHTML = ""; // Limpia el enlace antes de agregar texto
+                    enlace.appendChild(nombreJuego);
+                } else {
+                    li.innerHTML = ""; // Limpia el contenido del <li> para evitar duplicados
+                    li.appendChild(nombreJuego);
+                }
+            }
+        });
+
+    } else {
+        // Modo con imágenes activado (restaurar diseño original)
+            crearBotonesAdicion();
+
+        uls.forEach(ul => {
+            ul.style.display = "flex"; // Restaura el display original
+        });
+
+        lis.forEach(li => {
+            const enlace = li.querySelector("a");
+            const imgSrc = li.getAttribute('data-imgSrc');
+
+            if (imgSrc) {
+                const img = document.createElement("img");
+                img.src = imgSrc;
+                img.title = li.textContent.trim();
+
+                if (enlace) {
+                    enlace.innerHTML = "";
+                    enlace.appendChild(img);
+                } else {
+                    li.innerHTML = ""; // Limpia el <li> antes de agregar la imagen
+                    li.appendChild(img);
+                }
+            }
+        });
+    }
+}
+

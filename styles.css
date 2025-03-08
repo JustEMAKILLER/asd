@@ -1,3 +1,14 @@
+/* Fuentes */
+@font-face {
+  font-family: 'FuenteImpact';
+  src: url('ImpactLTStd.eot?#iefix') format('embedded-opentype'),
+  url('ImpactLTStd.woff2') format('woff2'),
+  url('ImpactLTStd.woff') format('woff'),
+  url('ImpactLTStd.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 /* Variables raíz */
 :root {
   --Bl-svg: white;
@@ -20,7 +31,7 @@ body {
   background-repeat: no-repeat;
   background-position: 0% 0%;
   background-size: 100%;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: 'FuenteImpact', Haettenschweiler, "Arial Narrow Bold", sans-serif;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -99,7 +110,6 @@ nav a{
 
 .box{
 margin-top: -20px;
-padding-right: 20px;
 text-align: center;
 border: 1px solid var(--Bl-border-title);
 border-radius: 20px;
@@ -161,16 +171,17 @@ text-shadow: 0 0 10px black;}
 }
 
 .kjasjuegos {
+  width: 700px;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   margin: 0 auto;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .kjasjuegos a {
   color: rgb(255, 255, 255);
   text-decoration: none;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: 'FuenteImpact', Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-align: left;
   font-size: 250%;
   text-shadow: 10px 10px 10px black;
@@ -190,11 +201,13 @@ text-shadow: 0 0 10px black;}
   border-radius: 20px;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-left: 50px;
+  margin: 0 auto;
   margin-bottom: 30px;
   scale: 1;
   transition: transform 1s;
   z-index: 1;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .cajasjuegos p{
@@ -272,7 +285,8 @@ text-shadow: 0 0 10px black;}
 }
 
 #reglas{
-  text-align: justify;}
+  text-align: justify;
+  padding-right: 20px;}
 
 #hinfo {
   text-align:center;
