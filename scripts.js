@@ -24,12 +24,17 @@ function crearBotonesAdicion() {
     const productos = document.querySelectorAll('.listajuegos li');
 
     productos.forEach((producto) => {
-        if (!producto.querySelector('.add-button')) {
-            const addButton = crearBoton("+", "add-button", "blue", function () {
-                moverProducto(producto);
-            });
-            producto.appendChild(addButton);
+        // Eliminar botones de adición existentes para evitar duplicados
+        const existingAddButton = producto.querySelector('.add-button');
+        if (existingAddButton) {
+            existingAddButton.remove();
         }
+
+        // Crear y agregar el botón de adición
+        const addButton = crearBoton("+", "add-button", "blue", function () {
+            moverProducto(producto);
+        });
+        producto.appendChild(addButton);
     });
 }
     
@@ -52,7 +57,7 @@ function moverProducto(producto) {
     const addButton = producto.querySelector('.add-button');
     if (addButton) addButton.remove();
 
-    // Crear botón de eliminar
+    // Crear botón de eliminar si no existe
     if (!producto.querySelector('.remove-button')) {
         const removeButton = crearBoton("x", "remove-button", "red", function () {
             devolverProducto(producto);
@@ -64,7 +69,6 @@ function moverProducto(producto) {
     hayDescartados();
     actualizarPrecio();
 }
-
 // Función para devolver un producto a juegosdescartadosDiv
 function devolverProducto(producto) {
     const juegosdescartadosDiv = document.getElementById("juegosdescartados");
@@ -267,7 +271,7 @@ function mostrarJuegosNewOrAct() {
  divBusqueda.style.opacity = "0";
  text.textContent = hayResultados ? "" : "No hay juegos nuevos o actualizados en esta sección.";
  botonJNA.style.display = "none";
- botonMostrar.style.display = "flex";
+ botonMostrar.style.display = "block";
 }
 //Función para mostrar todos los juegos de nuevo
 function mostrarJuegos() {
@@ -287,7 +291,7 @@ function mostrarJuegos() {
  encabezadoJuego.style.display = "block";})
  divBusqueda.style.opacity = "1";
  botonMostrar.style.display = "none";
- botonJNA.style.display = "flex";
+ botonJNA.style.display = "block";
  text.textContent = "Todos funcionan en LAN";
 }
 
@@ -316,7 +320,55 @@ function cerrarMenu(){
     menuDesplegado.style.display = "none";}
 
 //Función para enviar el listado de juegos agregados por Whatsapp
-function enviarListado(){
+function enviarListado() {
+    const resultadosDiv = document.getElementById("resultados");
+    const items = resultadosDiv.querySelectorAll('li');
+    let total = 0;
+    let mensaje = "Hola! Le escribo para pedirle los siguientes juegos:\n";
+
+    items.forEach(item => {
+        // Obtener el precio del juego
+        const price = parseFloat(item.getAttribute("data-price"));
+        if (!isNaN(price)) total += price;
+
+        // Obtener el título del juego en ambas vistas (imágenes o texto)
+        let tituloJuego = "";
+
+        // Verificar si estamos en modo texto tradicional
+        if (document.body.classList.contains("vista-tradicional")) {
+            // En modo texto, el título está en el texto del <li> o del enlace
+            const enlace = item.querySelector('a');
+            if (enlace) {
+                tituloJuego = enlace.textContent.trim(); // Obtener el texto del enlace
+            } else {
+                tituloJuego = item.textContent.trim(); // Obtener el texto del <li>
+            }
+        } else {
+            // En modo imágenes, el título está en el atributo "title" de la imagen
+            const img = item.querySelector('img');
+            if (img) {
+                tituloJuego = img.getAttribute('title'); // Obtener el título de la imagen
+            }
+        }
+
+        // Agregar el título del juego al mensaje
+        if (tituloJuego) {
+            mensaje += tituloJuego + "\n";
+        }
+    });
+
+    // Agregar el precio total al mensaje
+    mensaje += "Precio total: " + total + "$";
+
+    // Codificar el mensaje para formato URL
+    let mensajeURL = encodeURIComponent(mensaje);
+    let URL = `https://wa.me/+5363975093?text=${mensajeURL}`;
+
+    // Abrir la URL en una nueva pestaña
+    window.open(URL, "_blank");
+}
+
+function enviarListadoViejo(){
     const resultadosDiv = document.getElementById("resultados");
     const items = resultadosDiv.querySelectorAll('li');
     let total = 0;
@@ -353,6 +405,11 @@ function cambiarVista() {
             const enlace = li.querySelector("a");
             const img = li.querySelector("img");
 
+            // Guardar el contenido original antes de modificarlo
+            if (!li.dataset.originalContent) {
+                li.dataset.originalContent = li.innerHTML;
+            }
+
             if (img) {
                 const nombreJuego = document.createTextNode(img.title);
                 li.setAttribute('data-imgSrc', img.src); // Guarda la imagen antes de eliminarla
@@ -370,8 +427,6 @@ function cambiarVista() {
 
     } else {
         // Modo con imágenes activado (restaurar diseño original)
-            crearBotonesAdicion();
-
         uls.forEach(ul => {
             ul.style.display = "flex"; // Restaura el display original
         });
@@ -393,7 +448,33 @@ function cambiarVista() {
                     li.appendChild(img);
                 }
             }
+
+            // Restaurar el contenido original si existe
+            if (li.dataset.originalContent) {
+                li.innerHTML = li.dataset.originalContent;
+                delete li.dataset.originalContent; // Eliminar el dato temporal
+            }
         });
     }
-}
 
+    // Llamar a la función para recrear los botones de adición y eliminación
+    crearBotonesAdicion();
+    recrearBotonesEliminacion();
+}
+function recrearBotonesEliminacion() {
+    const productosEnResultados = document.querySelectorAll('#resultados li');
+
+    productosEnResultados.forEach((producto) => {
+        // Eliminar botones de eliminación existentes para evitar duplicados
+        const existingRemoveButton = producto.querySelector('.remove-button');
+        if (existingRemoveButton) {
+            existingRemoveButton.remove();
+        }
+
+        // Crear y agregar el botón de eliminación solo si el producto está en resultados
+        const removeButton = crearBoton("x", "remove-button", "red", function () {
+            devolverProducto(producto);
+        });
+        producto.appendChild(removeButton);
+    });
+}

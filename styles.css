@@ -1,10 +1,10 @@
 /* Fuentes */
 @font-face {
   font-family: 'FuenteImpact';
-  src: url('ImpactLTStd.eot?#iefix') format('embedded-opentype'),
-  url('ImpactLTStd.woff2') format('woff2'),
-  url('ImpactLTStd.woff') format('woff'),
-  url('ImpactLTStd.ttf') format('truetype');
+  src: url('fonts/ImpactLTStd.eot?#iefix') format('embedded-opentype'),
+  url('fonts/ImpactLTStd.woff2') format('woff2'),
+  url('fonts/ImpactLTStd.woff') format('woff'),
+  url('fonts/ImpactLTStd.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -26,7 +26,7 @@ body {
       rgba(252, 0, 0, 0) 8vw,
       rgba(0, 0, 0, 0.999)35vw
     ),
-    url(photo_2024-12-18_11-58-57.jpg) ;
+    url(img/photo_2024-12-18_11-58-57.jpg);
   color: var(--Bl-svg);
   background-repeat: no-repeat;
   background-position: 0% 0%;
@@ -56,7 +56,6 @@ svg {
     max-width: fit-content;
     margin-top: 20px;
     margin-left: 10px;
-    scale: 0.9;
     border: 1px solid var(--Bl-border-nav);
     border-radius: 20px;
     background-color: var(--Bl-background-nav);
@@ -78,7 +77,7 @@ nav a{
 .cajasjuegos:hover{
   z-index: 2;
   animation:cambiobordecajas 1s linear;
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 2px 2px 6px blue;
 }
 
@@ -87,12 +86,11 @@ nav a{
 }
 
 .boxcat {
-  margin: 0 auto;
-  width: fit-content;
-  max-width: 100%;
-  height: fit-content;
-  margin-top: -50px;
-  scale: 0.8;
+  margin: 50px auto;
+  max-width: 1200px; /* Limitamos el ancho máximo para evitar que se vea demasiado grande en pantallas grandes */
+  height: auto; /* Altura automática para que se ajuste al contenido */
+  margin-top: 2vh; /* Usamos vh para que el margen superior sea relativo al alto de la pantalla */
+  padding: 20px; /* Añadimos un padding para dar espacio interno */
   border: 1px solid var(--Bl-border-title);
   border-radius: 20px;
   background: linear-gradient(
@@ -102,8 +100,8 @@ nav a{
   );
   box-shadow: inset 0 0 30px var(--Bl-shadow-title);
   text-align: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
-  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 2vw; /* Usamos vw para que el tamaño de la fuente sea relativo al ancho de la pantalla */
   color: var(--Bl-color-title);
   text-shadow: 0 0 10px black;
 }
@@ -164,18 +162,18 @@ text-shadow: 0 0 10px black;}
   display: none;
   position: relative;
   top: -50%;
-  left: -40%;
- height: 120px;
- width: 100px;
- transition-property: opacity,height ;
+  left: -38%;
+  height: 120px;
+  width: 100px;
+  transition-property: opacity, height;
 }
 
 .kjasjuegos {
-  width: 700px;
+  width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
   display: flex;
-  flex-flow: column wrap;
-  margin: 0 auto;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: center; /* Centramos los elementos horizontalmente */
+  gap: 20px; /* Añadimos un espacio entre los elementos */
 }
 
 .kjasjuegos a {
@@ -195,27 +193,27 @@ text-shadow: 0 0 10px black;}
 }
 
 .cajasjuegos {
-  height: 250px;
+  width: 90%; /* Usamos un porcentaje para que el ancho sea relativo al contenedor padre */
+  max-width: 500px; /* Limitamos el ancho máximo para evitar que se vea demasiado grande en pantallas grandes */
+  height: 200px; /* Altura fija para mantener la proporción */
   border: solid 2px black;
   box-shadow: 2px 2px 6px purple;
   border-radius: 20px;
   background-size: cover;
   background-repeat: no-repeat;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  scale: 1;
-  transition: transform 1s;
+  margin-bottom: 20px; /* Añadimos un margen inferior para separar los elementos */
+  transition: transform 0.5s ease;
   z-index: 1;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden; /* Simplificamos el overflow */
 }
 
-.cajasjuegos p{
+.cajasjuegos p {
   user-select: none;
   position: relative;
   top: 30px;
   width: 100%;
   height: 100%;
+  font-size: 4vw; /* Usamos vw para que el tamaño de la fuente sea relativo al ancho de la pantalla */
 }
 
 .cajasjuegos a{
@@ -224,26 +222,27 @@ text-shadow: 0 0 10px black;}
 }
 
 
-.Download{
-  position: relative;
-  left: 50px;
-  bottom: 20px;
+.Download {
   display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-}
-
-.Download svg {
-  position: relative;
-  top: 57px;
-  left: -55%;
+  justify-content: center; /* Centramos el contenido horizontalmente */
+  align-items: center; /* Centramos el contenido verticalmente */
+  margin-top: 20px; /* Margen superior para separar del contenido anterior */
+  padding: 10px; /* Añadimos un padding para dar espacio interno */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para resaltar el botón */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 1px solid var(--Bl-border-title); /* Borde con el color definido en las variables */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
 }
 
 .Download a {
-  text-decoration: none;
-  color: aliceblue;
+  display: flex;
+  align-items: center; /* Centramos el ícono y el texto verticalmente */
+  gap: 10px; /* Espacio entre el ícono y el texto */
+  text-decoration: none; /* Quitamos el subrayado del enlace */
+  color: var(--Bl-color-title); /* Color del texto */
+  font-family: 'FuenteImpact', Haettenschweiler, "Arial Narrow Bold", sans-serif; /* Fuente */
+  font-size: 1.5vw; /* Tamaño de fuente relativo al ancho de la pantalla */
 }
 /* ID's */
 #Titulo {
@@ -264,24 +263,34 @@ text-shadow: 0 0 10px black;}
 }
 
 #c1 {
-  width: 300px;
-  background-image: url(5098471620732889477_120.jpg);
+  background-image: url(img/video-game-payday-2-dallas-loading-gun-lcsno22cr7nxmv4d.jpg);
 }
 #c2 {
-  background-image: url(alowallapope.jpg);
+  background-image: url(img/17913-3840x2160-desktop-4k-kingdom-hearts-wallpaper-image.jpg);
 }
 #c3 {
-  width: 500px;
-  background-image: url(Imagen-1-3-768x384.jpg);
+  background-image: url(img/jo89zfzqi9t51.jpg);
 }
 
 #payday{
-  top:-48%;
+  top:-58%;
 }
 
 #sora{
   width: 100px;
-  top:-45%;
+  top:-55%;
+}
+
+#Among{
+  top:-58%;
+}
+
+#fotoMega {
+  width: 40px; /* Tamaño fijo para el ícono */
+  height: 40px;
+  border-radius: 50%; /* Hacemos el ícono circular */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Sombra para resaltar el ícono */
+  margin-right: 10px; /* Espacio entre la imagen y el texto */
 }
 
 #reglas{

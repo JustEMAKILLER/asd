@@ -4,7 +4,7 @@
 <title>Ofertas Especiales - EMAKILLERGAMES</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<link rel="icon" href="icon.png" type="image/x-icon">
+<link rel="icon" href="img/icon.png" type="image/x-icon">
 <link rel="stylesheet" href="stylesjpc.css">
 <script src="scriptsofer.js" defer></script>
 </head>
@@ -62,22 +62,24 @@ l167.035,24.263c8.764,1.29,16.194,7.549,18.935,15.971C596.754,247.515,594.432,25
             </svg>
         </a>
 </nav>
-<div id="buscar" class="busqueda">
-<div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarbusqueda()">x</button></div>
-<div><input type="number" id="buscarprecio" placeholder="Filtrar por precio máximo..." oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda" onclick="borrarprecio()">x</button></div>
-</div>
+<div class="busqueda">
+  <div id="buscar">
+      <div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarBusqueda()">x</button></div>
+      <div><input type="number" id="buscarprecio" placeholder="Filtrar por precio máximo..." oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda" onclick="borrarPrecio()">x</button></div>
+  </div>
+  </div>
 <header>
 <h1 id=Titulo>Ofertas Especiales</h1>
 <p id=subir>.</p>
 </header>
     <main>
-      <div class=cajaresultados id="resultados"><h2 id="calculoprecio"></h2> </div>
       <div>
       <article class=caja>
       <section>
      <p style="margin-left:40px">Si el precio total de su compra alcanza los 200$, tiene permitido adquirir otro de hasta 50$ de su preferencia sin costos adicionales. Así mismo será si el total llega hasta los 400$: Se agrega otro juego de hasta 80$, y si es de 600$ o más obtendrá 2 de hasta 100$ (Esta oferta no es aplicable si solicita mensajería y se validará solo si el cliente la reclama al realizar su compra).</p>
   <p style="margin-left:40px">Los siguientes Packs se deben comprar en su totalidad, sin poder modificar su contenido u obtener solo una porción de este. Su precio puede fluctuar en dependencia de las modificaciones que sufra lo que tengan.</p>
   </div><br>
+  <button id="botonCambiarVista" onclick="cambiarVista()">Cambiar vista</button>
 <div class=caja>
 <section class=grupo-juegos><h4 data-price="60">Among Us Pack (60$)</h4>
 <ul class="listajuegos">

@@ -4,7 +4,7 @@
 <title>Juegos de Consolas - EMAKILLERGAMES</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<link rel="icon" href="icon.png" type="image/x-icon">
+<link rel="icon" href="img/icon.png" type="image/x-icon">
 <link rel="stylesheet" href="stylesjpc.css">
 <script src="scripts.js" defer></script>
 </head>
@@ -62,10 +62,12 @@ l167.035,24.263c8.764,1.29,16.194,7.549,18.935,15.971C596.754,247.515,594.432,25
             </svg>
         </a>
 </nav>
-<div id="buscar" class="busqueda">
-<div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarBusqueda()">x</button></div>
-<div><input type="number" id="buscarprecio" placeholder="Filtrar por precio máximo..." oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda" onclick="borrarPrecio()">x</button></div>
-</div>
+<div class="busqueda">
+  <div id="buscar">
+      <div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarBusqueda()">x</button></div>
+      <div><input type="number" id="buscarprecio" placeholder="Filtrar por precio máximo..." oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda" onclick="borrarPrecio()">x</button></div>
+  </div>
+  </div>
 <header>
 <h1 id=Titulo>Juegos de Consolas</h1>
 <p id=subir>.</p>
@@ -77,8 +79,10 @@ l167.035,24.263c8.764,1.29,16.194,7.549,18.935,15.971C596.754,247.515,594.432,25
         <div class=cajaresultados id="resultados"><h2 id="calculoprecio"></h2><button id="botoneliminatodo" class=botonelementos onclick="eliminarTodo()">
         Eliminar todo</button>
         <ul></ul><button id="botonEnviarWhatsapp" onclick="enviarListado()">Enviar listado por Whatsapp</button> </div>
-        <button id="botonJNA" onclick="mostrarJuegosNewOrAct()">Mostrar solo los juegos nuevos o actualizados</button>
-        <button id="botonMostrar" onclick="mostrarJuegos()">Mostrar todos los juegos</button>            
+        <button id="botonJNA" onclick="mostrarJuegosNewOrAct()">Mostrar solo los juegos <span style="color:rgb(157, 5, 157)">nuevos</span> o <span style="color:rgb(88, 88, 236)">actualizados</span></button>
+        <button id="botonMostrar" onclick="mostrarJuegos()">Mostrar todos los juegos</button>
+        <br>
+        <button id="botonCambiarVista" onclick="cambiarVista()">Cambiar vista</button>            
         <div id="cajaNoHayResultados" class=caja></div>
     <article class=caja>   
     <section class="grupo-juegos">

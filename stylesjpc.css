@@ -9,87 +9,6 @@
 	--Bl-shadow-title: rgb(2, 0, 0);
 	--Bl-color-title: rgb(255, 255, 255);}
 /* Reglas responsivas */
-@media (max-width: 400px) and (max-height: 700px){
-	#botonarriba{
-		height: 30px;
-		width: 30px;}
-	#buscar{
-		margin-right: 25vw;
-	}
-	nav {
-		height: 65px;
-		scale: 0.9;}
-		ul li{
-			width: 200px;
-			height: 150px;
-		}
-		.juegosnuevos p,.juegosactualizados p{
-			bottom:80%;}
-		.juegosnuevos p{
-			left:39%;}
-		.juegosactualizados p{
-			left: 29%;}
-}
-@media (min-width: 401px) and (max-width: 600px){
-	#botonarriba{
-		height: 30px;
-		width: 30px;}
-	#buscar{
-	margin-right: 15vw;}
-	nav {
-		height: 65px;
-		scale: 0.9;}
-		ul li{
-			width: 200px;
-			height: 150px;
-		}
-		.juegosnuevos p,.juegosactualizados p{
-			bottom:80%;}
-		.juegosnuevos p{
-			left:39%;}
-		.juegosactualizados p{
-			left: 29%;}
-}
-@media (min-width: 601px) and (max-width: 800px) {
-	#botonarriba{
-		height: 30px;
-		width: 30px;}
-		#buscar{
-			margin-right:10vw;}
-	nav {
-		height: 65px;
-		scale: 0.9;}
-		ul li{
-			width: 200px;
-			height: 150px;
-		}
-		.juegosnuevos p,.juegosactualizados p{
-			bottom:80%;}
-		.juegosnuevos p{
-			left:39%;}
-		.juegosactualizados p{
-			left: 29%;}
-		}
-@media (min-width: 801px) and (max-width: 1024px){
-	#botonarriba{
-		height: 30px;
-		width: 30px;}
-	#buscar{
-	margin-right: 18vw;}
-	nav {
-		height: 65px;
-		scale: 0.9;}
-		ul li{
-			width: 200px;
-			height: 150px;
-		}
-		.juegosnuevos p,.juegosactualizados p{
-			bottom:80%;}
-		.juegosnuevos p{
-			left:39%;}
-		.juegosactualizados p{
-			left: 29%;}
-}
 /* Palabras reservadas */
 	body {
 	background: linear-gradient(
@@ -97,7 +16,7 @@
 		rgba(252, 0, 0, 0) 8vw,
 		rgba(0, 0, 0, 0.999)35vw
 	  ),
-	  url(photo_2024-12-18_11-58-57.jpg) ;
+	  url(img/photo_2024-12-18_11-58-57.jpg);
 	color: var(--Bl-svg);
 	background-repeat: no-repeat;
 	background-position: 0% 0%;
@@ -133,7 +52,7 @@
         justify-content:right;
         position: sticky;
         top: 1%;
-        height: 70px;
+        height: 65px;
         min-width: fit-content;
         max-width: fit-content;
         margin-top: 20px;
@@ -142,7 +61,7 @@
         border-radius: 20px;
         background-color: var(--Bl-background-nav);
         box-shadow: 0 0 10px var(--Bl-shadow-nav);
-        z-index: 2;}
+        z-index: 200;}
     nav a{
         border-radius: 30px;
         transition: transform 1s;}
@@ -219,15 +138,6 @@
 	.remove-button:hover{
 		animation:cambiocolorremovebutton 0.3s ease;
 		box-shadow: 2px 2px 10px red;}
-	.busqueda{
-		display:flex;
-		justify-content:space-between;
-		flex-flow:row wrap;
-		margin: 0 auto;}
-	.botonesbusqueda{
-		display: none;}
-	.botonesbusqueda:hover{
-		cursor: pointer;}
 	.botonelementos{
 		position: relative;
 		top:-5px;
@@ -243,6 +153,19 @@
 	.botonelementos:hover{
 		animation:cambiocolorbusqueda 0.3s ease;
 		box-shadow: 2px 2px 10px purple;}
+.busqueda {
+	margin-left:75%;
+	margin-top: -8%;
+	width: fit-content;
+	scale: 0.75;
+    position: sticky;
+    top: 0%; /* Distancia desde la parte superior */
+    height: fit-content; /* Altura cero para no ocupar espacio adicional */
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    padding-right: 10px; /* Espacio desde el borde derecho */
+}
 	.caja{
 		user-select: none;
 		margin-top: 20px;
@@ -279,7 +202,7 @@
 		width: 300px;
 		height: 250px;}
 	.cajajuegosdescart li:hover, .cajaresultados li:hover {
-		transform: translateY(-5px);}		
+		transform: translateY(-5px);}
 	.juegosnuevos{
 		border:solid 10px rgb(171, 9, 171);
 		border-radius: 40px;}
@@ -289,6 +212,7 @@
 	.juegosnuevos p,.juegosactualizados p{
 		display: none;
 		color: whitesmoke;
+		text-shadow: 2px 2px 2px black;
 		position: relative;
 		bottom:70%;
 		margin: 0 auto;
@@ -336,7 +260,10 @@
 	.vista-tradicional .juegosnuevos p{
 		color:rgb(157, 5, 157);}
 	.vista-tradicional .juegosnuevos p, .vista-tradicional .juegosactualizados p{
-		display: inline;}
+		display: inline;
+		top: 0px;
+		left: 0px;
+		position: initial;}
 	.vista-tradicional a{
 		color:white !important;
 		text-decoration:none !important;}
@@ -344,6 +271,10 @@
 		text-decoration: underline solid lightblue !important;
 		color:lightblue !important;
 		transform: translateX(-10px);}
+	.vista-tradicional .juegosSinEnlace:hover{
+		text-decoration: none !important;
+		color:white !important;
+	}		
 	.vista-tradicional .add-button,.vista-tradicional .remove-button{
 		display: inline-block !important;
 		position: relative !important; 
@@ -373,11 +304,9 @@
 		scale: 0.5;
 		top: 3%;
 		left: 0%;}
-    #vectorHamburg{
-        left: 12.7px;}
 	/* Botones */
 	#botonJNA{
-		display: flex;}
+		display: block;}
 	#botonMostrar{
 		display:none;}
 	#botonJNA, #botonMostrar{
@@ -410,7 +339,7 @@
 		border-radius: 40px;
 		box-shadow:2px 2px 20px black;
 		background-position: center;
-		background-image: url("ieaksie 009.jpg");
+		background-image: url("img/ieaksie009.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
 		position:fixed;
@@ -478,18 +407,72 @@
 		color: rgba(242, 234, 124, 0.936);}
 	#yugio h4{
 		color: rgb(218, 54, 54);}
-	/* Otros */              
-	#buscar{
-		color: whitesmoke;
-		position: sticky;
-		top: 1%;
-		left: 100%;
-		margin-top: -65px;
-		margin-right: -2vw;
-		width: 25%;
-		height: 50px;
-		scale: 0.9;
-		z-index: 2;}
+	/* Otros */
+/* Contenedor principal de búsqueda */
+#buscar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los elementos de búsqueda */
+    width: 100%; /* Ancho automático basado en el contenido */
+    max-width: 300px; /* Limita el ancho máximo para no ocupar demasiado espacio */
+    padding: 10px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    background-color: var(--Bl-background-nav); /* Fondo para que el contenido no se vea detrás */
+    border: 1px solid var(--Bl-border-nav);
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--Bl-shadow-nav);
+}
+
+/* Contenedor de cada campo de búsqueda */
+#buscar > div {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio entre el input y el botón */
+    width: 100%;
+}
+
+/* Estilos para los inputs de búsqueda */
+#buscar input[type="text"],
+#buscar input[type="number"] {
+    flex-grow: 1; /* Hace que el input ocupe el espacio disponible */
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem; /* Tamaño de fuente relativo */
+    border: 2px solid var(--Bl-border-nav);
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 10px black;
+    transition: box-shadow 0.3s ease;
+}
+
+#buscar input[type="text"]:hover,
+#buscar input[type="number"]:hover {
+    box-shadow: 2px 2px 10px purple;
+}
+
+/* Estilos para los botones de borrar */
+#buscar .botonesbusqueda {
+    display: none; /* Oculto por defecto */
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--Bl-background-nav);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#buscar .botonesbusqueda:hover {
+    background-color: rgb(166, 11, 180);
+    transform: scale(1.1);
+}
+
+/* Mostrar el botón de borrar cuando el input tiene contenido */
+#buscar input:not(:placeholder-shown) + .botonesbusqueda {
+    display: inline-block;
+}
 	#cajaNoHayResultados{
 		display: none;
 		text-align: center;
